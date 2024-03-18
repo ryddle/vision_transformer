@@ -1,4 +1,4 @@
-Video Transformer(VIT): A Deep Learning Model for Video Processing
+# Video Transformer(VIT): A Deep Learning Model for Video Processing
 
 Video Transformer is a deep learning model that has recently been developed to process and analyze video data. It is based on the transformer architecture that has already proven its effectiveness in NLP tasks. The Video Transformer model can be used for various video processing tasks, such as video classification, video captioning, and video generation.
 
@@ -26,7 +26,7 @@ Concatenating the frames: The features from each frame are then concatenated and
 Adding a classification head: Finally, a classification head is added to the model, which makes predictions based on the processed video data. The classification head typically includes a linear layer and a softmax activation function, which outputs a probability distribution over the possible classes.
 Code:
 Here is an example implementation of the Video Transformer model in PyTorch:
-
+```bash
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -58,6 +58,7 @@ class TemporalTransformer(nn.Module):
 class VideoTransformer(nn.Module):
     def __init__(self, in_channels, spatial_out_channels, temporal_out_channels, num_classes):
         super(VideoTransformer, self).__init__()
+```
 CLS:
 The classification token (marked in the figure above — *), often referred to as the “CLS” token, is a special token that is added to the input data in the Transformer architecture. It is used to provide a fixed-length representation of the input data for the classification head.
 
@@ -66,7 +67,7 @@ In the case of the Video Transformer, the CLS token is added to the processed vi
 The classification head uses the representation of the CLS token to make predictions about the class of the video. The representation of the CLS token is typically passed through a linear layer and a softmax activation function, which outputs a probability distribution over the possible classes.
 
 Now including the CLS token:
-
+```bash
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -109,6 +110,7 @@ class VideoTransformer(nn.Module):
         x = x.mean(dim=1)
         x = self.fc(x)
         return x
+```
 Like all machine learning models, Video Transformers (ViTs) have both advantages and disadvantages when compared to other models.
 
 Advantages:
